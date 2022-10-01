@@ -1,14 +1,16 @@
 # Amble
 
----
-
 Amble is a human road trip planning application that directs your relaxed itinerary.
 
----
-
 ## TODO Triage
-
----
+- Basic website
+- Embed a map into our website
+- Plot routes from two points
+- Add landmark/attraction points to map
+- Biassing algorithm
+- Scenes (categories)
+- Preference buttons ('Restroom, Food, etc.')
+- Cheap gas finding algorithm
 
 ## Features
 
@@ -21,5 +23,3 @@ Amble is a human road trip planning application that directs your relaxed itiner
 - Dynamic preference serving
 - Scenes (filters for catergories of attractions)
 - Cheap gas finder
-
----
