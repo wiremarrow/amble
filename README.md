@@ -6,10 +6,10 @@ Amble is a human road trip planning application that directs your relaxed itiner
 - Basic website
 - Embed a map into our website
 - Plot routes from two points
-- Add landmark/attraction points to map
+- Add landmark / attraction points to map
 - Biassing algorithm
 - Scenes (categories)
-- Preference buttons ('Restroom, Food, etc.')
+- Preference buttons (restroom, food, etc.)
 - Cheap gas finding algorithm
 
 ## Features
