@@ -4,7 +4,7 @@ Amble is a human road trip planning application that directs your relaxed itiner
 
 ## TODO Triage
 - Basic website
-- Embed a map into our website
+- Embed a map into our website *
 - Plot routes from two points
 - Add landmark / attraction points to map
 - Biassing algorithm
