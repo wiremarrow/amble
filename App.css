@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+  }
+
+  .section__padding {
+    padding: 4rem 6rem;
+  }
+  
+  .section__margin {
+    margin: 4rem 6rem;
+  }
+
+  .font-link {
+    font-family: 'Playfair Display', serif;
+  }
