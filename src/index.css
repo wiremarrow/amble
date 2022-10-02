@@ -7,7 +7,7 @@
 }
 
 .stats {
-  background-color: rgba(35, 55, 75, 0.9);
+  background-color: rgba(0, 0, 0, 0.9);
   color: #fff;
   font-family: monospace;
   padding: 6px 12px;
@@ -20,7 +20,7 @@
 }
 
 .sidebar {
-  background-color: rgba(35, 55, 75, 0.9);
+  background-color: rgba(0, 0, 0, 0.65);
   color: #fff;
   font-family: monospace;
   padding: 6px 12px;

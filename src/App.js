@@ -8,6 +8,9 @@ export default function App() {
   const mapContainer = useRef(null);
   const map = useRef(null);
   const directions = useRef(null);
+  const userLandmark = useRef(null);
+  const [lngUser, setLngUser] = useState(-96.314445);
+  const [latUser, setLatUser] = useState(30.601389);
   const [lng, setLng] = useState(-96.314445);
   const [lat, setLat] = useState(30.601389);
   const [zoom, setZoom] = useState(4.5);
@@ -16,7 +19,7 @@ export default function App() {
     if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: 'mapbox://styles/wiremarrow/cl8qnv85s000h14msotbt7545',
+      style: 'mapbox://styles/wiremarrow/cl8r8xqhk001415qr6sri2wnl',
       center: [lng, lat],
       zoom: zoom
     });
@@ -27,6 +30,32 @@ export default function App() {
       profile: 'mapbox/driving'
     });
 
+    userLandmark.current = {
+      type: 'FeatureCollection',
+      features: [
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [lngUser, latUser]
+          },
+          properties: {
+            title: 'You',
+            description: ''
+          }
+        }
+      ]
+    }
+
+    for (const feature of userLandmark.current.features) {
+      // create a HTML element for each feature
+      const el = document.createElement('div');
+      el.className = 'marker';
+
+      // make a marker for each feature and add to the map
+      new mapboxgl.Marker(el).setLngLat(feature.geometry.coordinates).addTo(map.current);
+    }
+
     map.current.addControl(directions.current, 'top-left');
   });
 
@@ -36,6 +65,11 @@ export default function App() {
       setLng(map.current.getCenter().lng.toFixed(4));
       setLat(map.current.getCenter().lat.toFixed(4));
       setZoom(map.current.getZoom().toFixed(2));
+    });
+
+    navigator.geolocation.watchPosition(function(position) {
+      setLngUser(position.coords.longitude)
+      setLatUser(position.coords.latitude)
     });
   });
 
