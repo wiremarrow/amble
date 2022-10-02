@@ -1,27 +1,16 @@
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
-
-// var mapboxgl = require('mapbox-gl');
-// var MapboxDirections = require('@mapbox/mapbox-gl-directions');
+import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoid2lyZW1hcnJvdyIsImEiOiJjbDhxanJiMnEwM2JmNDBwYzN5amc5OThwIn0.4ZlwCt8tudoVRooIoQM1lQ';
 
 export default function App() {
   const mapContainer = useRef(null);
   const map = useRef(null);
+  const directions = useRef(null);
   const [lng, setLng] = useState(-96.314445);
   const [lat, setLat] = useState(30.601389);
   const [zoom, setZoom] = useState(4.5);
-
-  // const directions = new MapboxDirections({
-  //   accessToken: mapboxgl.accessToken,
-  //   unit: 'metric',
-  //   profile: 'mapbox/driving',
-  //   alternatives: false,
-  //   geometries: 'geojson',
-  //   controls: { instructions: false },
-  //   flyTo: false
-  // });
 
   useEffect(() => {
     if (map.current) return; // initialize map only once
@@ -32,7 +21,13 @@ export default function App() {
       zoom: zoom
     });
 
-    // map.addControl(directions, 'top-left');
+    directions.current = new MapboxDirections({
+      accessToken: mapboxgl.accessToken,
+      unit: 'metric',
+      profile: 'mapbox/driving'
+    });
+
+    map.current.addControl(directions.current, 'top-left');
   });
 
   useEffect(() => {
