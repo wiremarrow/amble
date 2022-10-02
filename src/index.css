@@ -6,15 +6,31 @@
   height: 100%;
 }
 
-.sidebar {
+.stats {
   background-color: rgba(35, 55, 75, 0.9);
   color: #fff;
-  padding: 6px 12px;
   font-family: monospace;
+  padding: 6px 12px;
   z-index: 1;
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   margin: 12px;
+  border-radius: 4px;
+}
+
+.sidebar {
+  background-color: rgba(35, 55, 75, 0.9);
+  color: #fff;
+  font-family: monospace;
+  padding: 6px 12px;
+  z-index: 2;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  bottom: 15px;
+  margin: 12px;
+  width: 25%;
+  overflow-y: scroll;
   border-radius: 4px;
 }
